@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Ali Rashidi",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -3.25,
+      "left": 233.95,
+      "attrs": { "cyw43": "1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 131.2,
+      "left": 351.2,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-analog-joystick", "id": "joystick1", "top": -183, "left": 159, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -146, "left": -148, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 213.6,
+      "left": 241.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "keypad1:C4", "pico:GP9", "green", [ "v9.6", "h201.3", "v-86.4" ] ],
+    [ "keypad1:C3", "pico:GP8", "green", [ "v19.2", "h201.45", "v-105.6" ] ],
+    [ "keypad1:C2", "pico:GP7", "green", [ "v28.8", "h201.6", "v-124.8" ] ],
+    [ "keypad1:C1", "pico:GP6", "green", [ "v38.4", "h201.5", "v-144" ] ],
+    [ "keypad1:R4", "pico:GP5", "green", [ "v48", "h201.4", "v-163.2" ] ],
+    [ "keypad1:R3", "pico:GP4", "green", [ "v57.6", "h201.3", "v-192" ] ],
+    [ "keypad1:R2", "pico:GP3", "green", [ "v67.2", "h201.2", "v-211.2" ] ],
+    [ "keypad1:R1", "pico:GP2", "green", [ "v76.8", "h201.6", "v-240" ] ],
+    [ "joystick1:VCC", "pico:VBUS", "red", [ "v57.6", "h134.4", "v19.2" ] ],
+    [ "joystick1:GND", "pico:GND.8", "black", [ "v48", "h105.6", "v38.4" ] ],
+    [ "joystick1:SEL", "pico:GP22", "green", [ "v38.4", "h124.8", "v144" ] ],
+    [ "joystick1:HORZ", "pico:GP26", "green", [ "v28.8", "h144", "v172.8" ] ],
+    [ "joystick1:VERT", "pico:GP27", "green", [ "v19.2", "h163.2", "v124.8" ] ],
+    [ "lcd1:GND", "pico:GND.8", "black", [ "h-19.2", "v-134.4" ] ],
+    [ "lcd1:VCC", "pico:VBUS", "red", [ "h-28.8", "v-163.1" ] ],
+    [ "lcd1:SDA", "pico:GP16", "green", [ "h-19.2", "v9.8" ] ],
+    [ "lcd1:SCL", "pico:GP17", "green", [ "h-9.6", "v9.9", "h-19.2", "v-19.2" ] ],
+    [ "bz1:1", "lcd1:GND", "black", [ "v9.6", "h67.2", "v-144" ] ],
+    [ "bz1:2", "pico:GP15", "red", [ "v19.2", "h-48.4", "v-144" ] ]
+  ],
+  "serialMonitor": { "display": "terminal" },
+  "dependencies": {}
+}

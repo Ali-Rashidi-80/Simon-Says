@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Ali Rashidi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -143.4, "left": -10.2, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 131.2,
+      "left": -4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -58.2,
+      "left": 283.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -213.2,
+      "left": -282.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -285.6,
+      "left": 289.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:GND", "uno:GND.3", "black", [ "h-9.6", "v-38.4", "h172.8" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-19.2", "v-57.5", "h163.2" ] ],
+    [ "lcd1:SDA", "uno:A4", "white", [ "h-28.8", "v-76.6", "h268.8" ] ],
+    [ "lcd1:SCL", "uno:A5", "yellow", [ "h-38.4", "v-95.7", "h288", "v9.6" ] ],
+    [ "joystick1:GND", "uno:GND.3", "black", [ "v67.2", "h-186.4" ] ],
+    [ "joystick1:VCC", "uno:5V", "red", [ "v38.4", "h-172.8" ] ],
+    [ "joystick1:HORZ", "uno:A0", "green", [ "v57.6", "h-144" ] ],
+    [ "joystick1:VERT", "uno:A1", "green", [ "v28.8", "h-115.2" ] ],
+    [ "joystick1:SEL", "uno:10", "magenta", [ "v9.6", "h48", "v-240", "h-249.6" ] ],
+    [ "keypad1:R1", "uno:2", "green", [ "v9.6", "h-105.6", "v-345.6", "h528" ] ],
+    [ "keypad1:R2", "uno:3", "green", [ "v19.2", "h-125.2", "v-364.8", "h508.8" ] ],
+    [ "keypad1:R3", "uno:4", "green", [ "v28.8", "h-144.3", "v-384", "h508.8" ] ],
+    [ "keypad1:R4", "uno:5", "green", [ "v38.4", "h-163.4", "v-403.2", "h508.8" ] ],
+    [ "keypad1:C1", "uno:6", "green", [ "v48", "h-182.5", "v-422.4", "h508.8" ] ],
+    [ "keypad1:C2", "uno:7", "green", [ "v57.6", "h-201.6", "v-441.6", "h518.4" ] ],
+    [ "keypad1:C3", "uno:8", "green", [ "v67.2", "h-220.95", "v-460.8", "h508.8" ] ],
+    [ "keypad1:C4", "uno:9", "green", [ "v76.8", "h-240.3", "v-480", "h499.2" ] ],
+    [ "bz1:1", "joystick1:GND", "black", [ "v19.2", "h86.4", "v259.2", "h-48" ] ],
+    [ "bz1:2", "uno:11", "white", [ "v9.6", "h-221.2" ] ]
+  ],
+  "dependencies": {}
+}
